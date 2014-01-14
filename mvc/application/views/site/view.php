@@ -1,0 +1,1 @@
+<h2>Action view - article<?=$params['article']['title']?></h2>
