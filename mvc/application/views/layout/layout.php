@@ -10,31 +10,33 @@
 	<?php else :?>
 	<link href="assets/main.css" rel="stylesheet">
 	<?php endif; ?>
-	<title><?php echo (($this->pageTitle != null)?$this->pageTitle . ' | ':'')?> My site </title>
+	<title><?php echo (($this->pageTitle != null)?$this->pageTitle . ' | ':'')?> Vacation Request </title>
 </head>
 <body>
         
-<!-- 
     <div class="toolbar">
             <div id="toolbar">
-                <?php if (isset($_SESSION['user']) && strlen($_SESSION['user'])):?>
+                <?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])):?>
                 <?php echo '<h1><a href="index.php?q=users/logout">Hello, ' . $_SESSION['user']. '!  Logout ' . $_SESSION['user_id'] . '</a></h1>';?>
                 <?php else :?>
-                <h1><a href="index.php?q=users/register">Registration</a></h1>
                 <h1><a href="index.php?q=users/login">Login</a></h1>
                 <?php endif;?>
                 <div class="clearfix"></div>
             </div>
     </div>
- -->
+
         
 	<div id="wrapper">
+		
+		<header>
+			<h1 class="logo"><a href="index.php"> Vacation Request </a></h1>
+		</header>
 		
 		<?php echo $content; ?>
 		
 		<footer>
-			<div id="left_footer">WWW Технологии 2013</div>
-			<div id="right_footer">ФМИ 2013</div>
+			<div id="left_footer">WWW Технологии 2014</div>
+			<div id="right_footer">ФМИ 2014</div>
 		</footer>
 
 	</div>
