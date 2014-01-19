@@ -14,17 +14,14 @@
 </head>
 <body>
         
-    <div class="toolbar">
+    <?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])):?>
+    	<div class="toolbar">
             <div id="toolbar">
-                <?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])):?>
-                <?php echo '<h1><a href="index.php?q=users/logout">Hello, ' . $_SESSION['user']. '!  Logout ' . $_SESSION['user_id'] . '</a></h1>';?>
-                <?php else :?>
-                <h1><a href="index.php?q=users/login">Login</a></h1>
-                <?php endif;?>
+                <?php echo '<h1><a href="index.php?q=users/logout">Hello, ' . $_SESSION['name']. '!  Logout ' . '</a></h1>';?>
                 <div class="clearfix"></div>
             </div>
-    </div>
-
+   		</div>
+	<?php endif;?>
         
 	<div id="wrapper">
 		
