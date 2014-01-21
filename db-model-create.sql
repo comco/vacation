@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`days_left`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`days_left` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
   `type` ENUM('paid', 'unpaid', 'university', 'sick') NOT NULL,
   `days` INT NOT NULL,
   PRIMARY KEY (`user_id`, `type`),
