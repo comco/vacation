@@ -1,10 +1,11 @@
 <?php
 
 include 'config/db.php';
+include '/DateManagement.php';
 
 class Information {
 	
-	public static function getInformation($userID, $startDate, $endDate, $type, $status) 
+	public static function getInformation($userID, $startDate, $endDate, $type, $status, $order_by = null, $order_type = ' DESC' ) 
 	{
 		//format the date according to DB requirements
 		$startDate = date('Y-m-d', strtotime($startDate));
@@ -17,17 +18,30 @@ class Information {
 		
 			$sql = Information::SQL_request($userID, $startDate, $endDate, $type, $status);
 
+			if($order_by) {
+				$sql .= 'ORDER BY `request`.' . $order_by . " $order_type";
+			}
+
 			$sth = $conn->prepare($sql);
 			$sth->execute();
 		} catch(PDOException $e) {
 			   echo 'ERROR: ' . $e->getMessage();
 		}
 
-		//$conn->commit();
+		
+		$sql_information = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-		$vacations = $sth->fetchAll(PDO::FETCH_ASSOC);
+		$vacations = array();
+		foreach ($sql_information as $key => $row) {
+			$row['duration'] = DateManagement::getWorkingDays($row['start_date'], $row['end_date'], array());
+			$vacations[$key] = $row;
+		}
+		
+		var_dump($vacations);
 		return $vacations;
 	}
+
+
 
 	static function SQL_request($userID, $startDate, $endDate, $type, $status)
 	{
@@ -53,7 +67,7 @@ class Information {
 			$sql .=	" AND `status` = " . "'$status'";
 		}
 
-		var_dump($sql);
+		//var_dump($sql);
 		return $sql;
 	}
 	
