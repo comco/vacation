@@ -14,7 +14,7 @@
 					<label for="username">Username</label>
 					<input type="text" name="username" id="name"/><br />
 					<label for="password">Password</label> 
-					<input type="password" name="password" id="password"></textarea><br /> 
+					<input type="password" name="password" id="password"><br /> 
 					<input type="hidden" name="role" id="role"/><br /> 
 				</fieldset>
 			<input type="submit" value="Login" class="send"/> 

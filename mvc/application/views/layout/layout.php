@@ -17,7 +17,13 @@
     <?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])):?>
     	<div class="toolbar">
             <div id="toolbar">
+                <h1>
+                    Hello, <?=$_SESSION['name']?>.
+                    <a href="index.php?q=users/logout">Logout</a>
+                </h1>
+                <!--
                 <?php echo '<h1><a href="index.php?q=users/logout">Hello, ' . $_SESSION['name']. '!  Logout ' . '</a></h1>';?>
+                -->
                 <div class="clearfix"></div>
             </div>
    		</div>
