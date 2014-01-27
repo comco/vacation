@@ -16,11 +16,11 @@ class InformationController extends BaseController {
 
 			 if(!empty($_POST['from']) && !empty($_POST['to']))
 			 {
-			 	var_dump($_POST);
+			 	//var_dump($_POST);
 				 $vacations = information::getInformation($_SESSION['user_id'], $_POST['from'], $_POST['to'], 
 				 				$_POST['type'], $_POST['status']);
 				 				
-				var_dump($vacations);
+				//var_dump($vacations);
  				 $this->render('information/table', $vacations);
 
 			 } else {

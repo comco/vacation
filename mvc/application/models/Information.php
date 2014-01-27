@@ -10,7 +10,7 @@ class Information {
 		$startDate = date('Y-m-d', strtotime($startDate));
 		$endDate = date('Y-m-d', strtotime($endDate));
 
-		var_dump($userID, $startDate, $endDate, $type, $status);
+		//var_dump($userID, $startDate, $endDate, $type, $status);
 		try {
 			$conn = new PDO('mysql:host=' . DB_SERVER . ';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
 			$conn->beginTransaction();
@@ -53,7 +53,7 @@ class Information {
 			$sql .=	" AND `status` = " . $status;
 		}
 
-		var_dump($sql);
+		//var_dump($sql);
 		return $sql;
 	}
 	
