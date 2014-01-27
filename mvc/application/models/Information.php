@@ -46,14 +46,14 @@ class Information {
 		}	
 
 		if($type != 'all')	{
-			$sql .=	" AND `type` = " . $type;
+			$sql .=	" AND `type` = " . "'$type'";
 		}
 
 		if($status != 'all') {
-			$sql .=	" AND `status` = " . $status;
+			$sql .=	" AND `status` = " . "'$status'";
 		}
 
-		//var_dump($sql);
+		var_dump($sql);
 		return $sql;
 	}
 	
