@@ -42,28 +42,25 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 </form>
  -->
  
-        <form method= "post" action="index.php?q=request/vacationRequest"> 
-            <section id="featured">
-                <h1 class="section_title">Add new day off</h1>
+    <section id="featured">
+        <form method= "post" action="index.php?q=request/vacationRequest">
+            <legend class="section_title">new vacation request</legend>
                 <div class="column">
                     <label for="name">Owner</label>
                     <input type="text" name="name" required>
-            
+                    <!-- No need for email here 
                     <label for="email">Email</label>
-                    <input type="email" name="email"> 
-                    <!--                      disabled="disabled"> -->
-                    
+                    <input type="email" name="email"> -->
                     <div class="twofields">
                         <div>
-                            <label>Select Type</label>
+                            <label for="type">Type</label>
                             <select name="type" required>
-                                
-                                <option value="4">-------------------</option>
+                                <!-- Required works with the empty value, see http://stackoverflow.com/questions/6048710/can-i-apply-the-required-attribute-to-select-fields-in-html5 -->
+                                <option value="">Select type</option>
                                 <option value="0">Vacation (Paid)</option>
                                 <option value="1">Vacation (Non-Paid)</option>
                                 <option value="2">School Leave</option>
                                 <option value="3">Sick Leave</option>
-                                
                             </select>
                         </div>
                         <div class="clearfix"></div>
