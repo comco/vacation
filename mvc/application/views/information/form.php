@@ -59,20 +59,33 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                         <div class="clearfix"></div>
                     </div>
                     <div class="row">
-                        <label>Select Type</label>
-                        <select name="type" required>
-                            
-                            <option value="4">All</option>
-                            <option value="0">Vacation (Paid)</option>
-                            <option value="1">Vacation (Non-Paid)</option>
-                            <option value="2">School Leave</option>
-                            <option value="3">Sick Leave</option>
-                            
-                        </select>
+                    	<div>
+	                        <label>Select Type</label>
+	                        <select name="type" required>
+	                            
+	                            <option value="all">All</option>
+	                            <option value="paid">Vacation (Paid)</option>
+	                            <option value="unpaid">Vacation (Non-Paid)</option>
+	                            <option value="university">School Leave</option>
+	                            <option value="sick">Sick Leave</option>
+	                            
+	                        </select>
+	                    </div>
+	                    <div>
+	                    	<label>Select Status</label>
+	                        <select name="status" required>
+	                            
+	                            <option value="all">All</option>
+	                            <option value="pending">Pending</option>
+	                            <option value="accepted">Accepted</option>
+	                            <option value="rejected">Rejected</option>
+	                            
+	                        </select>
+	                    </div>
                   		<div class="clearfix"></div>
                     </div>
               	   	<div class="row">
- 						<button id="save_button">Save</button>
+ 						<button id="save_button">Submit</button>
                		</div>
                 </div>  
                 <div class="clearfix"></div>              
