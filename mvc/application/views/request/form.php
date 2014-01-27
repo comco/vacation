@@ -47,7 +47,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                 <h1 class="section_title">Add new day off</h1>
                 <div class="column">
                     <label for="name">Owner</label>
-                    <input type="text" name="name">
+                    <input type="text" name="name" required>
             
                     <label for="email">Email</label>
                     <input type="email" name="email"> 
@@ -56,7 +56,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                     <div class="twofields">
                         <div>
                             <label>Select Type</label>
-                            <select name="type">
+                            <select name="type" required>
                                 
                                 <option value="4">-------------------</option>
                                 <option value="0">Vacation (Paid)</option>
@@ -71,11 +71,11 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                     <div class="twofields">
                         <div>
                             <label>From:</label>
-                            <input type="date" id="from" name="from" size="20" />
+                            <input type="date" id="from" name="from" size="20" required/>
                         </div>
                         <div>
                             <label>To:</label>
-                            <input type="date" id="to" name="to" size="20" />
+                            <input type="date" id="to" name="to" size="20" required/>
                         </div>
                         <div class="clearfix"></div>
                     </div>
