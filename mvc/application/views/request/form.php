@@ -42,9 +42,9 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 </form>
  -->
  
-        <form method= "post" action="index.php?q=request/vacationRequest"> 
-            <section id="featured">
-                <h1 class="section_title">Add new day off</h1>
+    <section id="featured">
+        <form method= "post" action="index.php?q=request/vacationRequest">
+            <legend class="section_title">add a new day off</legend>
                 <div class="column">
                     <label for="name">Owner</label>
                     <input type="text" name="name" required>
@@ -55,15 +55,13 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                     
                     <div class="twofields">
                         <div>
-                            <label>Select Type</label>
-                            <select name="type" required>
-                                
+                            <label for="type">Type</label>
+                            <select name="type" required >
                                 <option value="4">-------------------</option>
                                 <option value="0">Vacation (Paid)</option>
                                 <option value="1">Vacation (Non-Paid)</option>
                                 <option value="2">School Leave</option>
                                 <option value="3">Sick Leave</option>
-                                
                             </select>
                         </div>
                         <div class="clearfix"></div>
