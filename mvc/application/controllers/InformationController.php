@@ -18,7 +18,7 @@ class InformationController extends BaseController {
 			 {
 			 	//var_dump($_POST);
 				 $vacations = information::getInformation($_SESSION['user_id'], $_POST['from'], $_POST['to'], 
-				 				$_POST['type'], $_POST['status']);
+				 				$_POST['type'], $_POST['status'], 'start_date', 'ASC');
 				 				
 				//var_dump($vacations);
  				 $this->render('information/table', $vacations);
