@@ -37,7 +37,7 @@ class Information {
 			$vacations[$key] = $row;
 		}
 		
-		var_dump($vacations);
+		//var_dump($vacations);
 		return $vacations;
 	}
 
