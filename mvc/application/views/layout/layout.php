@@ -38,9 +38,13 @@
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
+                    <li><a href="index.php?q=request/form">New request</a></li>
+                    <li><a href="#">My requests</a></li>
+                    <!-- Vertical dividers are not in bootstrap 3.0 - code our own! -->
+                    <li class="divider-vertical"></li>
+                    <!-- Administrative options -->
+                    <li><a href="#">Process requests</a></li>
+                    <li><a href="#">Manage users</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <li class="navbar-text">Hello, <?=$_SESSION['name']?>.</li>
