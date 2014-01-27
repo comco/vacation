@@ -4,19 +4,17 @@
 	<?php endforeach; ?>
 	<?php else :?>
 	<link href="assets/main.css" rel="stylesheet">
-	<?php endif; ?>
-	
-	
-		<section id="login">
-				<form method= "post" action="index.php?q=users/login"> 
-				<fieldset>
-					<legend>Login</legend>
-					<label for="username">Username</label>
-					<input type="text" name="username" id="name"/><br />
-					<label for="password">Password</label> 
-					<input type="password" name="password" id="password"><br /> 
-					<input type="hidden" name="role" id="role"/><br /> 
-				</fieldset>
-			<input type="submit" value="Login" class="send"/> 
-			</form>
-		</section>
+        <?php endif; ?>
+
+<div class="container">
+    <section class="login-form">
+        <form method= "post" action="index.php?q=users/login"> 
+            <fieldset>
+                <legend>Login</legend>
+                <input type="text" class="form-control" name="username" placeholder="Username" required autofocus />
+                <input type="password" class="form-control" name="password" placeholder="Password" required />
+                <button class="btn btn-block btn-primary" type="submit">Login</button>
+            </fieldset>
+        </form>
+    </section>
+</div>

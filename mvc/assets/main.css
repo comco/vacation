@@ -1,23 +1,45 @@
-/*RESETS*/
-            *, html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td{margin:0; padding:0}
-            table{border-collapse:collapse; border-spacing:0}
-            fieldset, img{border:0}
-            address, caption, cite, code, dfn, em, strong, th, var{font-style:normal; font-weight:normal}
-            ol, ul, li{list-style:none}
-            caption, th{text-align:left}
-            h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:bold}
-            strong{font-weight:bold}
-            a img{border:none}
-            .clearfix{clear: both;}
-            
-    
-    body {
-    	font-family:Arial;
-/*     	font-size:100%;  */
-    	color:#222222;
-    }
-    
-    
+/* Make the footer stay in the footer! */
+html,
+body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+footer {
+    height: 60px;
+}
+
+.footer-in {
+    border-top: solid #c9c9c9 2px;
+    padding: 10px;
+}
+
+/* Login form customatizations */
+.login-form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.login-form input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.login-form input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+   
     /* Toolbar */
     
     .toolbar { height:30px; background:#222; }
@@ -34,7 +56,7 @@
 	}
 	
     #wrapper {
-    	width:960px;
+    	/*width:960px;*/
     	margin:0 auto;
     }
 	
@@ -108,7 +130,7 @@
     	font-size:1.15em; 
     	font-weight:bold;
     	text-transform:uppercase;
-    	width:960px;
+    	/*width:960px;*/
     	float:left;
     	margin-top:20px;
     	border-bottom: solid #c9c9c9 4px;
@@ -326,22 +348,6 @@
 
     /* Footer */
     
-    footer {
-    	width:960px;
-    	height:40px;
-    	border-top: solid #c9c9c9 2px;
-    	margin-top:30px;
-    }
-    
-    #left_footer {
-    	float:left;
-    	margin-top:10px;
-    }
-    
-    #right_footer {
-    	float:right;
-    	margin-top:10px;
-    }
     
     .columns:after {
     	content: ".";
