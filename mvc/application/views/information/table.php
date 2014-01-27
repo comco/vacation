@@ -7,10 +7,10 @@
 				foreach ($params as $row ) {
 					$class = "";
 					if ($row['status'] == 'accepted') {
-						$class = 'class="active"';
+						$class = 'class="success"';
 					}
 					else if ($row['status'] == 'pending') {
-						$class = 'class="success"';
+						$class = 'class="active"';
 					}
 					else if ($row['status'] == 'rejected') {
 						$class = 'class="danger"';

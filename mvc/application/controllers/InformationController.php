@@ -1,5 +1,5 @@
 <?php
-include 'application/models/information.php';
+include 'application/models/Information.php';
 
 class InformationController extends BaseController {
 
