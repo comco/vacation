@@ -30,7 +30,7 @@ class User {
 
 		$sql = 'INSERT INTO user (username, password, name, email, is_admin) VALUES (?, ?, ?, ?, ?)';
 		$sth = $conn->prepare($sql);
-		$sth->execute(array($name, $email, $username, $password, $type));
+		$sth->execute(array($username, $password, $name, $email, $type));
 
 		$conn->commit();
 	}
