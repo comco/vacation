@@ -44,7 +44,6 @@ class UsersController extends BaseController {
     }
 
     public function deleteUser() {
-//         var_dump($_POST);
         if ($_POST) {
             $user_id = $_POST['user_id'];
 
@@ -56,18 +55,18 @@ class UsersController extends BaseController {
     }
     
     public function acceptRequest() {
-		$this->changeStatus(1);
+		$this->changeStatus(2);
 		header("Location:index.php?q=users/manageUsers");
     }
     
     public function rejectRequest() {
-		$this->changeStatus(2);
+		$this->changeStatus(3);
 		header("Location:index.php?q=users/manageUsers");
     }
     
     public function changeStatus($status) {
         if ($_POST) {
-            $user_id = $_POST['request_id'];
+            $request_id = $_POST['request_id'];
 
             if (!empty($request_id)) {
                 Request::changeStatus($request_id, $status);

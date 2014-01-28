@@ -23,12 +23,13 @@ class Request {
 	}
 	
 	public static function changeStatus($request_id, $status) {
+
 		$conn = new PDO('mysql:host=' . DB_SERVER . ';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
 		$conn->beginTransaction();
 
-		$sql = 'UPDATE request SET status = 2 WHERE request_id = ?';
+		$sql = 'UPDATE request SET status = ? WHERE request_id = ?';
 		$sth = $conn->prepare($sql);
-		$sth->execute(array($request_id));
+		$sth->execute(array($status, $request_id));
 
 		$conn->commit();
     }
