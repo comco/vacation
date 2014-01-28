@@ -44,8 +44,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                 <div class="column">
                 		<div>
                             <label for="type">Type</label>
-                            <select name="type" required>
-                                <!-- Required works with the empty value, see http://stackoverflow.com/questions/6048710/can-i-apply-the-required-attribute-to-select-fields-in-html5 -->
+                            <select name="type" class="form-control" required>
                                 <option value="">Select type</option>
                                 <option value="1">Vacation (Paid)</option>
                                 <option value="2">Vacation (Non-Paid)</option>
@@ -57,17 +56,17 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                     <div class="twofields">
                         <div>
                             <label>From:</label>
-                            <input type="date" id="from" name="from" size="20" required/>
+                            <input type="date" id="from" name="from" class="form-control" equired/>
                         </div>
                         <div>
                             <label>To:</label>
-                            <input type="date" id="to" name="to" size="20" required/>
+                            <input type="date" id="to" name="to" class="form-control" required/>
                         </div>
                     </div>
                     <div class="clearfix"></div>
                     <div>
                     	<label for="type">Comments</label>
-                   		<textarea name="comment"></textarea>
+                   		<textarea name="comment" class="form-control"></textarea>
                     	<button id="save_button" class="btn btn-block btn-primary" type="submit">Save</button>
                     </div>
                     
