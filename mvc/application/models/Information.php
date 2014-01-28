@@ -1,7 +1,7 @@
 <?php
 
 include 'config/db.php';
-include '/DateManagement.php';
+include 'assets/DateManagement.php';
 
 class Information {
 	

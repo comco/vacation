@@ -27,13 +27,17 @@ footer {
     margin: 0 auto;
 }
 
-.login-form input[type="text"] {
+.form-first {
     margin-bottom: -1px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.login-form input[type="password"] {
+.form-middle {
+    border-radius: 0;
+}
+
+.form-last {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
