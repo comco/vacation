@@ -63,6 +63,18 @@ footer {
     margin-bottom: 10px;
 }
 
+/* Request form customatizations */
+.request-form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.request-form select {
+	width:300px;
+    margin-bottom: 10px;
+}
+
 /* Vertical divider for the nav bar */
 .divider-vertical {
     height: 50px;

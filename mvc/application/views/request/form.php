@@ -20,39 +20,29 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 </script>
 
 	<style>
-            .column {width:460px; float: left; margin: 20px 10px}
+            .column {width:460px; float: left;}
             .column h1{margin: 20px 0; border-bottom: 1px solid #ccc;}
             .column label{display: block;margin-bottom: 4px;}
             .column input[type=text],.column input[type=email], .column input[type=password], .column textarea{width: 400px;height: 24px; padding: 4px;margin-bottom: 10px;border: 1px solid #c9c9c9;font-size: .8em;}
             .column input[type=date] {width: 100px;height: 24px; padding: 4px;margin-bottom: 10px;border: 1px solid #c9c9c9;font-size: .8em;}
-            .twofields{height:30px;margin-bottom: 20px}
-            .twofields div{float: left; margin-right:10px;width:180px;}
-            .column textarea {height: 156px;font-size: 1.1em;}
-            #save_button {display: block;font-size: 1.0em;background-color: #F0F0F0;padding: 3px 8px;border: 1px solid #E5E5E5;float: left; width:170px;}
+/*             .twofields{height:30px;} */
+            .twofields div{float:left;margin:10px;width:130px;}
+            .twofields div input[type="date"]{height:35px;width:130px;font-size:20px;}
+            .column textarea {height: 100px;font-size: 1.1em;width:300px;}
+            #save_button {display: block;font-size: 1.0em;padding: 3px 8px;border: 1px solid #E5E5E5;float: left; width:300px;height:50px;}
 	 </style>
     
 </head>
  
 <body>
-<!-- 
-<form>
-<b>Date of birth:</b>
-<input type="date" id="birthday" name="birthday" size="20" />
-<input type="button" value="Submit" name="B1"></p>
-</form>
- -->
  
-    <section id="featured">
+ <div class="container">
+    <section class="request-form">
+<!--     <section id="featured"> -->
         <form method= "post" action="index.php?q=request/vacationRequest">
-            <legend class="section_title">new vacation request</legend>
+            <legend>New vacation request</legend>
                 <div class="column">
-                    <label for="name">Owner</label>
-                    <input type="text" name="name" required>
-                    <!-- No need for email here 
-                    <label for="email">Email</label>
-                    <input type="email" name="email"> -->
-                    <div class="twofields">
-                        <div>
+                		<div>
                             <label for="type">Type</label>
                             <select name="type" required>
                                 <!-- Required works with the empty value, see http://stackoverflow.com/questions/6048710/can-i-apply-the-required-attribute-to-select-fields-in-html5 -->
@@ -64,7 +54,6 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                             </select>
                         </div>
                         <div class="clearfix"></div>
-                    </div>
                     <div class="twofields">
                         <div>
                             <label>From:</label>
@@ -74,16 +63,17 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                             <label>To:</label>
                             <input type="date" id="to" name="to" size="20" required/>
                         </div>
-                        <div class="clearfix"></div>
                     </div>
+                    <div class="clearfix"></div>
+                    <div>
+                    	<label for="type">Comments</label>
+                   		<textarea name="comment"></textarea>
+                    	<button id="save_button" class="btn btn-block btn-primary" type="submit">Save</button>
+                    </div>
+                    
                 </div>
-                <div class="column">
-                    <label for="comment">Comments</label>
-                    <textarea name="comment"></textarea>
-                    <button id="save_button">Save</button>
-                </div>
-                <div class="clearfix"></div>
                 
 		</form>
- 
+	</section>	
+ </div>
 </body>
