@@ -34,7 +34,7 @@
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">vacation</a>
+                <p class="navbar-brand">vacation</p>
             </div>
 
 <?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])):?>
@@ -47,7 +47,7 @@
                     <li class="divider-vertical"></li>
                     <!-- Administrative options -->
                     <?php if ($_SESSION['is_admin']) :?>
-                    	<li><a href="index.php?q=information/table">Process requests</a></li>
+                    	<li><a href="index.php?q=information/table">Pending requests</a></li>
                     	<li><a href="index.php?q=users/manageUsers">Manage users</a></li>
                     <?php endif; ?>
                 </ul>
