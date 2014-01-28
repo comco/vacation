@@ -57,10 +57,10 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                             <select name="type" required>
                                 <!-- Required works with the empty value, see http://stackoverflow.com/questions/6048710/can-i-apply-the-required-attribute-to-select-fields-in-html5 -->
                                 <option value="">Select type</option>
-                                <option value="0">Vacation (Paid)</option>
-                                <option value="1">Vacation (Non-Paid)</option>
-                                <option value="2">School Leave</option>
-                                <option value="3">Sick Leave</option>
+                                <option value="1">Vacation (Paid)</option>
+                                <option value="2">Vacation (Non-Paid)</option>
+                                <option value="3">School Leave</option>
+                                <option value="4">Sick Leave</option>
                             </select>
                         </div>
                         <div class="clearfix"></div>
