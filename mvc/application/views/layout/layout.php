@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-        <!-- START Twitter Bootstrap -->
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!-- Custom css -->
+    <link rel="stylesheet" href="assets/main.css">
 
-        <!-- END Twitter Bootstrap -->
-        
-        <!-- BEGIN jQuery datepicker -->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-
-        <?php if (isset($params['css']) && is_array($params['css'])) :?>
-	<?php foreach($params['css'] as $css) : ?>
-		<link href="<?=$css ?>" rel="stylesheet">	
-	<?php endforeach; ?>
-	<?php else :?>
-	<link href="assets/main.css" rel="stylesheet">
-	<?php endif; ?>
-	<title><?php echo (($this->pageTitle != null)?$this->pageTitle . ' | ':'')?> Vacations </title>
+    <title><?php echo (($this->pageTitle != null)?$this->pageTitle . ' | ':'')?> vacation </title>
 </head>
 <body>
 <div id="wrap">
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="navbar-header">
-                <p class="navbar-brand">vacation</p>
+                <span class="navbar-brand">vacation</span>
             </div>
-
-<?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])):?>
+            <!-- Only logged users can view the options. -->
+            <?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])): ?>
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -46,9 +40,10 @@
                     <!-- Vertical dividers are not in bootstrap 3.0 - code our own! -->
                     <li class="divider-vertical"></li>
                     <!-- Administrative options -->
-                    <?php if ($_SESSION['is_admin']) :?>
-                    	<li><a href="index.php?q=information/table">Pending requests</a></li>
-                    	<li><a href="index.php?q=users/manageUsers">Manage users</a></li>
+
+                    <?php if ($_SESSION['is_admin']): ?>
+                    <li><a href="index.php?q=information/table">Pending requests</a></li>
+                    <li><a href="index.php?q=users/manageUsers">Manage users</a></li>
                     <?php endif; ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -57,20 +52,18 @@
                 </ul>
             </div>
 
-<?php endif;?>
+            <?php endif; ?>
+
         </nav>
 
 
-	<div id="wrapper">
-		
+        <div id="wrapper">
+
             <?php echo $content; ?>
-		
+
         </div>
-
     </div>
-
-</div> <!-- wrap -->
-<!-- Make footer stay down! -->
+</div>
 <footer>
     <div class="container">
         <div class="footer-in">
@@ -79,13 +72,10 @@
         </div>
     </div>
 </footer>
-<script src="//code.jquery.com/jquery-1.9.1.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 <script>
-$(function() {
-$( ".datepicker" ).datepicker();
-});
+    $(function() {
+        $(".datepicker").datepicker();
+    });
 </script>
 </body>
 </html>
