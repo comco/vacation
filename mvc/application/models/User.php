@@ -35,4 +35,20 @@ class User {
 		$conn->commit();
 	}
 
+	public static function getAllUsers()
+	{
+		try {
+			$conn = new PDO('mysql:host=' . DB_SERVER . ';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
+			$sql     = "SELECT * FROM user";
+			$query   = $conn->prepare($sql);
+			$result = $query->execute();
+			$arr = $query->fetchAll(PDO::FETCH_ASSOC);
+			
+			return $arr;
+			
+		   } catch(PDOException $e) {
+			   echo 'ERROR: ' . $e->getMessage();
+		}
+	}
+	
 }
