@@ -1,7 +1,7 @@
 <head>
 	<style>
 			.history_table {padding-top: 50px}
-			th {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 12px;}
+			td {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 12px;}
 			thead { border-color: rgb(255, 255, 255)}
        		thead th:first-child {border-top-left-radius: 4px; border-color: rgb(255, 255, 255)}
 			thead th:last-child {border-top-right-radius: 4px;  border-color: rgb(255, 255, 255)}
@@ -10,13 +10,39 @@
 						color: rgb(255, 255, 255);
 						font-size: 12px;
 						font-weight: bold;}
+			#table_button {float:right;}
 
 	 </style>
-    
+<?php
+	function add_admin_tools($status)
+	{
+		$status_column = "<td>" . $status. "</td>";
+		if($status == 'pending') {
+			$button = '<button class="btn btn-warning" id="table_button"data-toggle="modal" data-target="#myModal">
+	  					Accept/Reject
+						</button>';
+			$status_column = "<td style='color:#003399;font-weight:bold'>" . $status. $button . "</td>";
+		}
+		else if($status == 'accepted') {
+			$status_column = "<td style='color:#00CC00;font-weight:bold'>" . $status . $button . "</td>";
+		}
+		else if($status == 'reject') {
+			$status_column = "<td style='color:#FF0000;font-weight:bold'>" . $status . $button . "</td>";
+		}
+		return $status_column;
+	}
+?>    
 </head>
 
 <div class="history_table">
-	<legend>Vacation History</legend>
+	<?php 
+		if($_SESSION['is_admin']) {
+			echo "<legend>Vacation Request</legend>";
+		}
+		else {
+			echo "<legend>Vacation History</legend>";
+		}
+	?>
 	<table class="table table-bordered table-hover">
 		
 			<?php
@@ -34,15 +60,22 @@
 					else if ($row['status'] == 'rejected') {
 						$class = 'class="danger"';
 					}
-					echo "<tr " . $class . "> "
-							. "<th>" . $row['name'] . "</th>"
-							. "<th>" . $row['start_date']. "</th>"
-							. "<th>" . $row['end_date']. "</th>"
-							. "<th>" . $row['duration']. "</th>"
-							. "<th>" . $row['type']. "</th>"
-							. "<th>" . $row['status']. "</th>"
-						. "</tr>";
+					$table = "<tr " . $class . "> "
+							. "<td>" . $row['name'] . "</td>"
+							. "<td>" . $row['start_date']. "</td>"
+							. "<td>" . $row['end_date']. "</td>"
+							. "<td>" . $row['duration']. "</td>"
+							. "<td>" . $row['type']. "</td>";
+					if($_SESSION['is_admin']) {
+
+						$table .=  add_admin_tools($row['status']) . "</tr>";
+					}
+					else {
+						$table .= "<td>" . $row['status']. "</td>". "</tr>";
+					}
+					echo $table;	
 				}
+			
 			?>
 		</tbody>
 	</table>

@@ -56,7 +56,7 @@
                     <li class="divider-vertical"></li>
                     <!-- Administrative options -->
                     <?php if ($_SESSION['is_admin']) :?>
-                    	<li><a href="#">Process requests</a></li>
+                    	<li><a href="index.php?q=information/table">Process requests</a></li>
                     	<li><a href="index.php?q=users/manageUsers">Manage users</a></li>
                     <?php endif; ?>
                 </ul>

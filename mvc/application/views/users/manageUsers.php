@@ -41,7 +41,7 @@
 				echo "<thead> <tr> <th>USERNAME</th> <th>NAME</th> <th>EMAIL</th> <th>OPTIONS</th> </tr> </thead>";
 				echo "<tbody>";
 					foreach ($params as $row) {
-						echo "<tr " . $class . "> "
+						echo "<tr> "
 							. "<th>" . $row['username']. "</th>"
 							. "<th>" . $row['name']. "</th>"
 							. "<th>" . $row['email']. "</th>"
