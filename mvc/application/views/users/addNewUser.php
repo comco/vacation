@@ -8,7 +8,7 @@
 
 <div class="container">
     <section class="register-form">
-        <form method= "post" action="index.php?q=users/manageUsers"> 
+        <form method= "post" action="index.php?q=users/addNewUser"> 
             <fieldset>
                 <legend>Register new user</legend>
                 <input type="text" class="form-control form-first" name="name" placeholder="Name" required autofocus />
