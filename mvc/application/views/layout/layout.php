@@ -43,8 +43,10 @@
                     <!-- Vertical dividers are not in bootstrap 3.0 - code our own! -->
                     <li class="divider-vertical"></li>
                     <!-- Administrative options -->
-                    <li><a href="#">Process requests</a></li>
-                    <li><a href="index.php?q=users/manageUsers">Manage users</a></li>
+                    <?php if ($_SESSION['is_admin']) :?>
+                    	<li><a href="#">Process requests</a></li>
+                    	<li><a href="index.php?q=users/manageUsers">Manage users</a></li>
+                    <?php endif; ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <li class="navbar-text">Hello, <?=$_SESSION['name']?>.</li>
