@@ -39,7 +39,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php?q=request/form">New request</a></li>
-                    <li><a href="#">My requests</a></li>
+                    <li><a href="index.php?q=information/form">My requests</a></li>
                     <!-- Vertical dividers are not in bootstrap 3.0 - code our own! -->
                     <li class="divider-vertical"></li>
                     <!-- Administrative options -->
