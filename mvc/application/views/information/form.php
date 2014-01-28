@@ -33,19 +33,19 @@
             <div class="controls-inline">
                 <div class="inline">
                     <label class="block" for="from">From:</label>
-                    <input type="text" class="form-control datepicker" id="from" name="from" size="20" required/>
+                    <input type="text" class="form-control datepicker" id="from" name="from" size="20"/>
                 </div>
 
                 <div class="inline">
                     <label class="block" for="to">To:</label>
-                    <input  type="text" class="form-control datepicker" id="to" name="to" size="20" required/>
+                    <input  type="text" class="form-control datepicker" id="to" name="to" size="20"/>
                 </div>
 
             </div>
             <div class="controls">
                 <div class="selection">
                     <label class="control-label" for="type">Select Type</label>
-                    <select name="type" class="form-control" required>
+                    <select name="type" class="form-control">
 
                         <option value="all">All</option>
                         <option value="paid">Vacation (Paid)</option>
@@ -58,7 +58,7 @@
 
                 <div class="selection">
                     <label class="control-label" for="status">Select Status</label>
-                    <select name="status" class="form-control" required>
+                    <select name="status" class="form-control">
 
                         <option value="all">All</option>
                         <option value="pending">Pending</option>
