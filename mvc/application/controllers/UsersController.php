@@ -23,4 +23,16 @@ class UsersController extends BaseController {
     	session_destroy();
     	header('Location:index.php?q=users/login');
     }
+    
+    public function manageUsers() {
+    	if ($_POST) {
+    		if(!empty($_POST['name']) && !empty($_POST['username']) && !empty($_POST['password']) && $_POST['type']!= "")
+			 {
+          		User::saveUser($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'], $_POST['type']);
+				header("Location:index.php");
+			} 
+        }
+        
+    	$this->render('users/manageUsers');
+    }
 }

@@ -21,5 +21,18 @@ class User {
 			   echo 'ERROR: ' . $e->getMessage();
 		}
 	}
+	
+	public static function saveUser($name, $email, $username, $password, $type) 
+	{
+		
+		$conn = new PDO('mysql:host=' . DB_SERVER . ';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
+		$conn->beginTransaction();
+
+		$sql = 'INSERT INTO user (username, password, name, email, is_admin) VALUES (?, ?, ?, ?, ?)';
+		$sth = $conn->prepare($sql);
+		$sth->execute(array($name, $email, $username, $password, $type));
+
+		$conn->commit();
+	}
 
 }
