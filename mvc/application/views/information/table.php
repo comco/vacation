@@ -37,7 +37,7 @@
 <div class="history_table">
 	<?php 
 		if($_SESSION['is_admin']) {
-			echo "<legend>Vacation Request</legend>";
+			echo "<legend>Pending Requests</legend>";
 		}
 		else {
 			echo "<legend>Vacation History</legend>";

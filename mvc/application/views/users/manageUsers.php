@@ -56,7 +56,7 @@
                     </form>    
                 </td>
                 <td style="width:70px;">
-                    <form action="index.php?q=users/deleteUser" method="post">
+                    <form action="index.php?q=users/deleteUser" method="post" onsubmit="return confirm('Are you sure?');">
                         <input type="hidden" name="user_id" value="<?=$row['user_id']?>" />
                         <input type="submit" class="btn btn-inline btn-danger" value="Delete"/>
                     </form>
