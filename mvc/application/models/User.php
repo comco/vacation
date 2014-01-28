@@ -24,7 +24,6 @@ class User {
 	
 	public static function saveUser($name, $email, $username, $password, $type) 
 	{
-		
 		$conn = new PDO('mysql:host=' . DB_SERVER . ';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
 		$conn->beginTransaction();
 
@@ -33,7 +32,18 @@ class User {
 		$sth->execute(array($username, $password, $name, $email, $type));
 
 		$conn->commit();
-	}
+        }
+
+        public static function deleteUser($user_id) {
+            $conn = new PDO('mysql:host=' . DB_SERVER . ';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
+            $conn->beginTransaction();
+
+            $sql = 'DELETE FROM user WHERE user_id = ?';
+            $sth = $conn->prepare($sql);
+            $sth->execute(array($user_id));
+
+            $conn->commit();
+        }
 
 	public static function getAllUsers()
 	{

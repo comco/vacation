@@ -33,43 +33,36 @@
 </div>
 
 <div class="history_table">
-	<form>
-		<table class="table table-bordered table-hover">
-			<tbody>
-				<?php
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>USERNAME</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th colspan="2">OPTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
 
-				echo "<thead> <tr> <th>USERNAME</th> <th>NAME</th> <th>EMAIL</th> <th>OPTIONS</th> </tr> </thead>";
-				echo "<tbody>";
-					foreach ($params as $row) {
-						echo "<tr " . $class . "> "
-							. "<th>" . $row['username']. "</th>"
-							. "<th>" . $row['name']. "</th>"
-							. "<th>" . $row['email']. "</th>"
-							. "<th>";
-				?>
-						<input id="view_button" class="btn btn-inline btn-primary" type="button" value="View" onclick='alert("Hello World!")'>
-						<input id="delete_button" class="btn btn-inline btn-primary" type="button" value="Delete">
-				<?php
-					 	echo "</th></tr>";
-				}
-			?>
-			</tbody>
-		</table>
-	</form>
-</div>
-
-
-<script type="text/javascript">
-
-// var button;
-// button = document.getElementById('view_button');
-// button.onclick = function () { 
-// 	
-// };
-
-var deleteButton;
-deleteButton = document.getElementById('delete_button');
-deleteButton.onclick = function () { 
-	
-};
-</script>
+        <?php foreach ($params as $row) {?>
+            <tr>
+                <td><?=$row['username']?></td>
+                <td><?=$row['name']?></td>
+                <td><?=$row['email']?></td>
+                <td style="width:70px;">
+                    <form action="index.php?q=users/viewUser" method="post">
+                        <input type="hidden" name="user_id" value="<?=$row['user_id']?>" />
+                        <input type="submit" class="btn btn-inline btn-primary" value="View"/>
+                    </form>    
+                </td>
+                <td style="width:70px;">
+                    <form action="index.php?q=users/deleteUser" method="post">
+                        <input type="hidden" name="user_id" value="<?=$row['user_id']?>" />
+                        <input type="submit" class="btn btn-inline btn-danger" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        <?php }?>
+        </tbody>
+    </table>
+</div>        
