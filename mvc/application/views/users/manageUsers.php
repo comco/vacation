@@ -10,7 +10,7 @@
             .table {width:600px;margin-left:280px;}
             #delete_button{width:70px;margin:5px;color:red;}
             #view_button{width:70px;margin:5px;}
-            .history_table {padding-top: 50px}
+/*             .history_table {padding-top: 50px} */
 			th {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 12px;}
 			thead { border-color: rgb(255, 255, 255)}
        		thead th:first-child {border-top-left-radius: 4px; border-color: rgb(255, 255, 255)}
