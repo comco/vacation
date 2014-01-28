@@ -34,7 +34,7 @@
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">vacation</a>
+                <p class="navbar-brand">vacation</p>
             </div>
 
 <?php if (isset($_SESSION['user_id']) && strlen($_SESSION['user_id'])):?>

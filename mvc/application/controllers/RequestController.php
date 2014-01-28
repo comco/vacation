@@ -17,15 +17,11 @@ class RequestController extends BaseController {
 				 Request::saveRequest($_SESSION['user_id'], $status, $_POST['from'], $_POST['to'], 
 				 				$_POST['type'], $_POST['comment']);
 				 				
-				 header("Location:index.php");
-// 				 $this->render('site/index');
-
-			 } else {
-			 	// justr test
-			 	header('Location:index.php?q=users/login');
+// 				 header("Location:index.php?q=request/form");
 			 }
- 		 } else {
- 		 	header("Location:index.php");
- 		 }	
+ 		 } 
+ 		 	
+ 		 header("Location:index.php?q=request/form");
+
     }
 }
