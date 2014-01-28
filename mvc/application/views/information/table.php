@@ -26,7 +26,7 @@
 		else if($status == 'accepted') {
 			$status_column = "<td style='color:#00CC00;font-weight:bold'>" . $status . $button . "</td>";
 		}
-		else if($status == 'reject') {
+		else if($status == 'rejected') {
 			$status_column = "<td style='color:#FF0000;font-weight:bold'>" . $status . $button . "</td>";
 		}
 		return $status_column;

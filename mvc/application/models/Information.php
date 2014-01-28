@@ -52,7 +52,7 @@ class Information {
 		$sql = "SELECT * FROM `request` JOIN `user` ON `request`.`user_id` = `user`.`user_id` WHERE true";
 
 		if($userID) {
-			$sql .=	" AND `request`.`user_id` = " . $userID;
+			$sql .=	" AND `request`.`user_id` = " . "'$userID'";
 		}
 
 		if ($startDate) {
@@ -71,7 +71,7 @@ class Information {
 			$sql .=	" AND `request`.`status` = " . "'$status'";
 		}
 
-		//var_dump($sql);
+// 		var_dump($sql);
 		return $sql;
 	}
 	
