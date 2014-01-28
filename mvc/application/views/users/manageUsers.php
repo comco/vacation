@@ -10,6 +10,16 @@
             .table {width:600px;margin-left:280px;}
             #delete_button{width:70px;margin:5px;color:red;}
             #view_button{width:70px;margin:5px;}
+            .history_table {padding-top: 50px}
+			th {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 12px;}
+			thead { border-color: rgb(255, 255, 255)}
+       		thead th:first-child {border-top-left-radius: 4px; border-color: rgb(255, 255, 255)}
+			thead th:last-child {border-top-right-radius: 4px;  border-color: rgb(255, 255, 255)}
+          	thead th {background: linear-gradient(to bottom, #80B2E6 0%, #4D94DB 0%, #0066CC 100%) repeat scroll 0% 0% transparent;
+           				font-family: 'Open Sans',serif;
+						color: rgb(255, 255, 255);
+						font-size: 12px;
+						font-weight: bold;}
 </style>
 
 <div class="container">
@@ -22,13 +32,14 @@
     </section>
 </div>
 
-<div>
+<div class="history_table">
 	<form>
-		<table class="table" border=2>
+		<table class="table table-bordered table-hover">
 			<tbody>
 				<?php
 
-				echo "<tr> <th>USERNAME</th> <th>NAME</th> <th>EMAIL</th> <th>OPTIONS</th> </tr>";
+				echo "<thead> <tr> <th>USERNAME</th> <th>NAME</th> <th>EMAIL</th> <th>OPTIONS</th> </tr> </thead>";
+				echo "<tbody>";
 					foreach ($params as $row) {
 						echo "<tr " . $class . "> "
 							. "<th>" . $row['username']. "</th>"
