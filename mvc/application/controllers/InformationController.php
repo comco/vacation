@@ -4,11 +4,30 @@ include 'application/models/Information.php';
 class InformationController extends BaseController {
 
 	public function table() {
-    	$this->render('information/table');
+		if($_SESSION['is_admin']) {
+			$vacations = information::getInformation(null, null, null, 
+				 				'all', 'pending', 'start_date', 'ASC');
+		}
+		else {
+			$vacations = information::getInformation($_SESSION['user_id'], null, null, 
+				 				'all', 'pending', 'user_id', 'DESC');	
+		}
+
+    	$this->render('information/table', $vacations);
     }
 
     public function form() {
     	$this->render('information/form');
+    }
+
+
+    public function getPendingVacations($user_id)
+    {
+    	$vacations = information::getInformation($user_id, null, null, 
+				 				'all', 'pending', 'start_date', 'ASC');
+				 				
+		//var_dump($vacations);
+		 $this->render('information/table', $vacations);
     }
     
     public function vacationInformation() {
@@ -30,6 +49,5 @@ class InformationController extends BaseController {
  		 } else {
  		 	header("Location:index.php");
  		 }	
-	
     }
 }

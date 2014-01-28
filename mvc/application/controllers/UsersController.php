@@ -12,7 +12,8 @@ class UsersController extends BaseController {
         		  $_SESSION['user_id'] = $check['user_id'];
         		  $_SESSION['is_admin'] = $check['is_admin'];
         		  $_SESSION['name'] = $check['name'];
-        		  header("Location:index.php?q=request/form");
+
+        		  header("Location:index.php?q=information/table");
           	}
         }
 

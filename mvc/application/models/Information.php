@@ -8,8 +8,12 @@ class Information {
 	public static function getInformation($userID, $startDate, $endDate, $type, $status, $order_by = null, $order_type = ' DESC' ) 
 	{
 		//format the date according to DB requirements
-		$startDate = date('Y-m-d', strtotime($startDate));
-		$endDate = date('Y-m-d', strtotime($endDate));
+		if($startDate) {
+			$startDate = date('Y-m-d', strtotime($startDate));
+		}
+		if($endDate) {
+			$endDate = date('Y-m-d', strtotime($endDate));
+		}
 
 		//var_dump($userID, $startDate, $endDate, $type, $status);
 		try {
@@ -45,26 +49,26 @@ class Information {
 
 	static function SQL_request($userID, $startDate, $endDate, $type, $status)
 	{
-		$sql = "SELECT * FROM `request` WHERE true";
+		$sql = "SELECT * FROM `request` JOIN `user` ON `request`.`user_id` = `user`.`user_id` WHERE true";
 
 		if($userID) {
-			$sql .=	" AND `user_id` = " . $userID;
+			$sql .=	" AND `request`.`user_id` = " . $userID;
 		}
 
 		if ($startDate) {
-			$sql .= " AND `start_date` >= " . "'$startDate'"; 
+			$sql .= " AND `request`.`start_date` >= " . "'$startDate'"; 
 		}	
 
 		if ( $endDate) {
-			$sql .= " AND `end_date` <= " . "'$endDate'"; 
+			$sql .= " AND `request`.`end_date` <= " . "'$endDate'"; 
 		}	
 
 		if($type != 'all')	{
-			$sql .=	" AND `type` = " . "'$type'";
+			$sql .=	" AND `request`.`type` = " . "'$type'";
 		}
 
 		if($status != 'all') {
-			$sql .=	" AND `status` = " . "'$status'";
+			$sql .=	" AND `request`.`status` = " . "'$status'";
 		}
 
 		//var_dump($sql);

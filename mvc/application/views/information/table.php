@@ -21,7 +21,7 @@
 		
 			<?php
 
-			echo "<thead> <tr> <th>FROM</th> <th>TO</th> <th>DURATION</th> <th>TYPE</th> <th>STATUS</th> </tr> </thead>";
+			echo "<thead> <tr> <th>OWNER</th> <th>FROM</th> <th>TO</th> <th>DURATION</th> <th>TYPE</th> <th>STATUS</th> </tr> </thead>";
 			echo "<tbody>";
 				foreach ($params as $row ) {
 					$class = "";
@@ -35,6 +35,7 @@
 						$class = 'class="danger"';
 					}
 					echo "<tr " . $class . "> "
+							. "<th>" . $row['name'] . "</th>"
 							. "<th>" . $row['start_date']. "</th>"
 							. "<th>" . $row['end_date']. "</th>"
 							. "<th>" . $row['duration']. "</th>"
