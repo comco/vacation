@@ -14,9 +14,10 @@
 .column textarea {height: 100px;font-size: 1.1em;width:300px;}
 #save_button {display: block;font-size: 1.0em;padding: 3px 8px;border: 1px solid #E5E5E5;float: left; width:300px;height:50px;}
 </style>
+
 <div class="container">
     <section class="request-form">
-        <form method= "post" action="index.php?q=request/vacationRequest">
+        <form id="new-vacation-request-form" method= "post" action="index.php?q=request/vacationRequest">
             <legend>New vacation request</legend>
             <div class="column">
                 <div>
@@ -32,21 +33,45 @@
                 <div class="clearfix"></div>
                 <div class="twofields">
                     <div>
-                        <label>From:</label>
+                        <label for="text">From:</label>
                         <input type="text" id="from" name="from" class="form-control datepicker" required/>
                     </div>
                     <div>
-                        <label>To:</label>
+                        <label for="to">To:</label>
                         <input type="text" id="to" name="to" class="form-control datepicker" required/>
                     </div>
                 </div>
                 <div class="clearfix"></div>
                 <div>
-                    <label for="type">Comments</label>
+                    <label for="comment">Comments</label>
                     <textarea name="comment" class="form-control"></textarea>
-                    <button id="save_button" class="btn btn-block btn-primary" type="submit">Save</button>
+                    <input type="submit" id="save_button" class="btn btn-block btn-primary" value="Create">
                 </div>
             </div>
         </form>
     </section>	
 </div>
+
+<script>
+$(document).ready(function () {
+
+    $('#new-vacation-request-form').validate({
+        rules: {
+            type: {
+                required: true
+            },
+            from: {
+                required: true
+            },
+            to: {
+                required: true   
+            }
+        },
+        submitHandler: function (form) {
+            alert('Successfully created a new vacation request.');
+            form.submit();
+        }
+    });
+
+});
+</script>

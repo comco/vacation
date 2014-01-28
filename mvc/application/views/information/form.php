@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="controls">
-                <button id="save_button" class="btn btn-block btn-primary" type="submit">Submit</button>
+                <button id="save_button" class="btn btn-block btn-primary" type="submit">Search</button>
             </div>   
         </div>
     </section>      
