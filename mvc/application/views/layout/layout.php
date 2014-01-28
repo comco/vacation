@@ -5,29 +5,20 @@
 
         <!-- START Twitter Bootstrap -->
 
-            <!-- Latest compiled and minified CSS -->
-            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 
-            <!-- Optional theme -->
-            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
 
-            <!-- Latest compiled and minified JavaScript -->
-            <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
         <!-- END Twitter Bootstrap -->
         
         <!-- BEGIN jQuery datepicker -->
-            <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-          <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-          <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-          <link rel="stylesheet" href="/resources/demos/style.css">
-          <script>
-          $(function() {
-            $( "#datepicker" ).datepicker();
-          });
-          </script>
-        <!-- END jQuery datepicker -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
         <?php if (isset($params['css']) && is_array($params['css'])) :?>
 	<?php foreach($params['css'] as $css) : ?>
@@ -88,10 +79,16 @@
         </div>
     </div>
 </footer>
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+$(function() {
+$( ".datepicker" ).datepicker();
+});
+</script>
 </body>
 </html>
 <!-- Hosting24 Analytics Code -->
-<!--
 <script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
--->
 <!-- End Of Analytics Code -->
