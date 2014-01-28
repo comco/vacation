@@ -43,7 +43,7 @@ class UsersController extends BaseController {
     }
 
     public function deleteUser() {
-        var_dump($_POST);
+//         var_dump($_POST);
         if ($_POST) {
             $user_id = $_POST['user_id'];
 
