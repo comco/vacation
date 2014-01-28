@@ -17,6 +17,18 @@
 
         <!-- END Twitter Bootstrap -->
         
+        <!-- BEGIN jQuery datepicker -->
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+          <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+          <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+          <link rel="stylesheet" href="/resources/demos/style.css">
+          <script>
+          $(function() {
+            $( "#datepicker" ).datepicker();
+          });
+          </script>
+        <!-- END jQuery datepicker -->
+
         <?php if (isset($params['css']) && is_array($params['css'])) :?>
 	<?php foreach($params['css'] as $css) : ?>
 		<link href="<?=$css ?>" rel="stylesheet">	
@@ -79,5 +91,7 @@
 </body>
 </html>
 <!-- Hosting24 Analytics Code -->
+<!--
 <script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+-->
 <!-- End Of Analytics Code -->

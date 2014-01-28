@@ -3,20 +3,20 @@
 <script type="text/javascript">
     var datefield=document.createElement("input")
     datefield.setAttribute("type", "date")
-    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+//    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
         document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
         document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
         document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
-    }
+//    }
 </script>
  
 <script>
-if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+//if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
     jQuery(function($){ //on document.ready
         $('#from').datepicker();
         $('#to').datepicker();
     })
-}
+//}
 </script>
 
 	<style>
@@ -27,7 +27,12 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
             .column input[type=date] {width: 100px;height: 24px; padding: 4px;margin-bottom: 10px;border: 1px solid #c9c9c9;font-size: .8em;}
 /*             .twofields{height:30px;} */
             .twofields div{float:left;margin:10px;width:130px;}
-            .twofields div input[type="date"]{height:35px;width:130px;font-size:20px;}
+            .twofields div input.datepicker { 
+                height:35px;
+                width:130px;
+                font-size:20px;
+            }
+            
             .column textarea {height: 100px;font-size: 1.1em;width:300px;}
             #save_button {display: block;font-size: 1.0em;padding: 3px 8px;border: 1px solid #E5E5E5;float: left; width:300px;height:50px;}
 	 </style>
@@ -56,11 +61,11 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                     <div class="twofields">
                         <div>
                             <label>From:</label>
-                            <input type="date" id="from" name="from" class="form-control" equired/>
+                            <input type="text" id="from" name="from" class="form-control datepicker" required/>
                         </div>
                         <div>
                             <label>To:</label>
-                            <input type="date" id="to" name="to" class="form-control" required/>
+                            <input type="text" id="to" name="to" class="form-control datepicker" required/>
                         </div>
                     </div>
                     <div class="clearfix"></div>
