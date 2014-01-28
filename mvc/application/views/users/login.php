@@ -11,8 +11,8 @@
         <form method= "post" action="index.php?q=users/login"> 
             <fieldset>
                 <legend>Login</legend>
-                <input type="text" class="form-control" name="username" placeholder="Username" required autofocus />
-                <input type="password" class="form-control" name="password" placeholder="Password" required />
+                <input type="text" class="form-control form-first" name="username" placeholder="Username" required autofocus />
+                <input type="password" class="form-control form-last" name="password" placeholder="Password" required />
                 <button class="btn btn-block btn-primary" type="submit">Login</button>
             </fieldset>
         </form>
