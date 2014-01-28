@@ -20,15 +20,18 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 </script>
 
 	<style>
-            .column {width:460px; margin: 10px auto}
+           .column {width:460px; float: left;}
             .column h1{margin: 20px 0; border-bottom: 1px solid #ccc;}
             .column label{display: block;margin-bottom: 4px;}
             .column input[type=text],.column input[type=email], .column input[type=password], .column textarea{width: 400px;height: 24px; padding: 4px;margin-bottom: 10px;border: 1px solid #c9c9c9;font-size: .8em;}
-            .column input[type=date] {width: 100px;height: 24px; padding: 4px;margin-bottom: 10px;border: 1px solid #c9c9c9;font-size: .8em;}
-            .row{margin: 20px}
-            .row div{float: left; margin-right:10px;width:180px;}
-            .column textarea {height: 156px;font-size: 1.1em;}
-            #save_button {display: block;font-size: 1.0em;background-color: #F0F0F0;padding: 3px 8px;border: 1px solid #E5E5E5;float: left; width:170px;}
+            .input-small {width: 100px;height: 24px; padding: 4px;margin-bottom: 10px;border: 1px solid #c9c9c9;font-size: .8em;}
+            .controls div{ margin:10px 0px;width:130px;}
+
+            .control-group div input[type="date"]{height:35px;font-size:20px;width: 130px;}
+            .block {display: block;} 
+            .inline {display: inline-block; margin-right: 30px; width: 130px;}
+            .controls-inline :last-child{margin-right: 0px;}
+            #save_button {display: block;font-size: 1.0em;padding: 3px 8px;border: 1px solid #E5E5E5;float: left; width:300px;height:50px;}
 	 </style>
     
 </head>
@@ -42,53 +45,54 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 </form>
  -->
  
-        <form method= "post" action="index.php?q=information/vacationInformation"> 
-            <section id="featured">
-                <h1 class="section_title">Information for Vacations</h1>
+        <form class="form-horizontal" method= "post" action="index.php?q=information/vacationInformation"> 
+            <section class="request-form">
+                <legend>Information for Vacations</legend>
                 <div class="clearfix"></div>
-                <div class="column">
-                   <div class="row">
-                        <div>
-                            <label>From:</label>
-                            <input type="date" id="from" name="from" size="20" required/>
+                <div class="control-group">
+                    <div class="controls-inline">
+                        <div class="inline">
+                            <label class="block">From:</label>
+                            <input type="date" class="input-small" id="from" name="from" size="20" required/>
                         </div>
-                        <div>
-                            <label>To:</label>
-                            <input type="date" id="to" name="to" size="20" required/>
+
+                        <div class="inline">
+                            <label class="block">To:</label>
+                            <input  type="date" class="input-small" id="to" name="to" size="20" required/>
                         </div>
-                        <div class="clearfix"></div>
+
                     </div>
-                    <div class="row">
-                    	<div>
-	                        <label>Select Type</label>
-	                        <select name="type" required>
-	                            
-	                            <option value="all">All</option>
-	                            <option value="paid">Vacation (Paid)</option>
-	                            <option value="unpaid">Vacation (Non-Paid)</option>
-	                            <option value="university">School Leave</option>
-	                            <option value="sick">Sick Leave</option>
-	                            
-	                        </select>
-	                    </div>
-	                    <div>
-	                    	<label>Select Status</label>
-	                        <select name="status" required>
-	                            
-	                            <option value="all">All</option>
-	                            <option value="pending">Pending</option>
-	                            <option value="accepted">Accepted</option>
-	                            <option value="rejected">Rejected</option>
-	                            
-	                        </select>
-	                    </div>
-                  		<div class="clearfix"></div>
+                	<div class="controls">
+                        <div class="selection">
+                            <label class="control-label">Select Type</label>
+                            <select name="type" required>
+                                
+                                <option value="all">All</option>
+                                <option value="paid">Vacation (Paid)</option>
+                                <option value="unpaid">Vacation (Non-Paid)</option>
+                                <option value="university">School Leave</option>
+                                <option value="sick">Sick Leave</option>
+                                
+                            </select>
+                        </div>
+
+                         <div class="selection">
+                        	<label class="control-label">Select Status</label>
+                            <select name="status" required>
+                                
+                                <option value="all">All</option>
+                                <option value="pending">Pending</option>
+                                <option value="accepted">Accepted</option>
+                                <option value="rejected">Rejected</option>
+                                
+                            </select>
+                        </div>
                     </div>
-              	   	<div class="row">
- 						<button id="save_button">Submit</button>
-               		</div>
-                </div>  
-                <div class="clearfix"></div>              
+          		    <div class="controls">
+                        <button id="save_button" class="btn btn-block btn-primary" type="submit">Submit</button>
+                    </div>   
+                </div>
+              	             
 		</form>
  
 </body>
