@@ -1,5 +1,6 @@
 <?php
 include 'application/models/User.php';
+include 'application/models/Request.php';
 
 class UsersController extends BaseController {
 
@@ -50,6 +51,26 @@ class UsersController extends BaseController {
             if (!empty($user_id)) {
                 User::deleteUser($user_id);
                 header("Location:index.php?q=users/manageUsers");
+            }
+        }
+    }
+    
+    public function acceptRequest() {
+		$this->changeStatus(1);
+		header("Location:index.php?q=users/manageUsers");
+    }
+    
+    public function rejectRequest() {
+		$this->changeStatus(2);
+		header("Location:index.php?q=users/manageUsers");
+    }
+    
+    public function changeStatus($status) {
+        if ($_POST) {
+            $user_id = $_POST['request_id'];
+
+            if (!empty($request_id)) {
+                Request::changeStatus($request_id, $status);
             }
         }
     }

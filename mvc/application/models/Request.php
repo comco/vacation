@@ -22,5 +22,15 @@ class Request {
 		$conn->commit();
 	}
 	
+	public static function changeStatus($request_id, $status) {
+		$conn = new PDO('mysql:host=' . DB_SERVER . ';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
+		$conn->beginTransaction();
+
+		$sql = 'UPDATE request SET status = 2 WHERE request_id = ?';
+		$sth = $conn->prepare($sql);
+		$sth->execute(array($request_id));
+
+		$conn->commit();
+    }
 
 }

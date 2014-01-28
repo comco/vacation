@@ -13,25 +13,7 @@
 			#table_button {float:right;}
 
 	 </style>
-<?php
-	function add_admin_tools($status)
-	{
-		$status_column = "<td>" . $status. "</td>";
-		if($status == 'pending') {
-			$button = '<button class="btn btn-warning" id="table_button"data-toggle="modal" data-target="#myModal">
-	  					Accept/Reject
-						</button>';
-			$status_column = "<td style='color:#003399;font-weight:bold'>" . $status. $button . "</td>";
-		}
-		else if($status == 'accepted') {
-			$status_column = "<td style='color:#00CC00;font-weight:bold'>" . $status . $button . "</td>";
-		}
-		else if($status == 'rejected') {
-			$status_column = "<td style='color:#FF0000;font-weight:bold'>" . $status . $button . "</td>";
-		}
-		return $status_column;
-	}
-?>    
+  
 </head>
 
 <div class="history_table">
@@ -44,39 +26,61 @@
 		}
 	?>
 	<table class="table table-bordered table-hover">
+		<thead>
+            <tr>
+                <th>OWNER</th>
+                <th>FROM</th>
+                <th>TO</th>
+                <th>DURATION</th>
+                <th>TYPE</th>
+                <th colspan="3">STATUS</th>
+            </tr>
+        </thead>
+        
+        <?php foreach ($params as $row) {
+        	$status_column = "";
+        	$class = "";
+        	if($row['status'] == 'pending') {
+				$status_column = "color:#003399;font-weight:bold";
+				$class = "warming";
+			}
+			else if($row['status'] == 'accepted') {
+				$status_column = "color:#00CC00;font-weight:bold";
+				$class = "success";
+			}
+			else if($row['status'] == 'rejected') {
+				$status_column = "color:#FF0000;font-weight:bold";
+				$class = "danger";
+			}?>
+            <tr class="<?=$class?>" style="height:50px;">
+                <td><?=$row['name']?></td>
+                <td><?=$row['start_date']?></td>
+                <td><?=$row['end_date']?></td>
+                <td><?=$row['duration']?></td>
+                <td><?=$row['type']?></td>
+                
+                <?php if($_SESSION['is_admin'] && $row['status'] == 'pending') { ?>
+						<td style="<?=$status_column?>"><?=$row['status']?></td>
+						<td style="width:50px;">
+							<form action="index.php?q=users/acceptRequest" method="post" onsubmit="return confirm('Are you sure?');">
+								<input type="hidden" name="request_id" value="<?=$row['request_id']?>" />
+								<input type="submit" class="btn btn-inline btn-success" value="Accept"/>
+							</form>
+						</td>
+						<td style="width:50px;">
+							<form action="index.php?q=users/rejectRequest" method="post" onsubmit="return confirm('Are you sure?');">
+								<input type="hidden" name="request_id" value="<?=$row['request_id']?>" />
+								<input type="submit" class="btn btn-inline btn-danger" value="Reject"/>
+							</form>
+						</td>
+				<?php } else { ?>
+					<td style="<?=$status_column?>"><?=$row['status']?></td>
+					<td style="width:50;"> </td>
+					<td style="width:50;"> </td>
+				<?php } ?>
+            </tr>
+        <?php }?>
+        </tbody>
 		
-			<?php
-
-			echo "<thead> <tr> <th>OWNER</th> <th>FROM</th> <th>TO</th> <th>DURATION</th> <th>TYPE</th> <th>STATUS</th> </tr> </thead>";
-			echo "<tbody>";
-				foreach ($params as $row ) {
-					$class = "";
-					if ($row['status'] == 'accepted') {
-						$class = 'class="success"';
-					}
-					else if ($row['status'] == 'pending') {
-						$class = 'class="warming"';
-					}
-					else if ($row['status'] == 'rejected') {
-						$class = 'class="danger"';
-					}
-					$table = "<tr " . $class . "> "
-							. "<td>" . $row['name'] . "</td>"
-							. "<td>" . $row['start_date']. "</td>"
-							. "<td>" . $row['end_date']. "</td>"
-							. "<td>" . $row['duration']. "</td>"
-							. "<td>" . $row['type']. "</td>";
-					if($_SESSION['is_admin']) {
-
-						$table .=  add_admin_tools($row['status']) . "</tr>";
-					}
-					else {
-						$table .= "<td>" . $row['status']. "</td>". "</tr>";
-					}
-					echo $table;	
-				}
-			
-			?>
-		</tbody>
 	</table>
 </div>
