@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user` (
   `name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NULL,
   `is_admin` TINYINT(1) NOT NULL,
+  `is_active` TINYINT(1) NOT NULL DEFAULT TRUE,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   PRIMARY KEY (`user_id`));
 
