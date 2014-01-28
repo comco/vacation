@@ -30,6 +30,16 @@ class InformationController extends BaseController {
 		 $this->render('information/table', $vacations);
     }
     
+    public function getAllRequestsFromUser()
+    {
+    	$user_id = $_POST['user_id'];
+    	$vacations = information::getInformation($user_id, null, null, 
+				 				'all', 'all', 'start_date', 'ASC');
+				 				
+// 		var_dump($vacations);
+		 $this->render('information/table', $vacations);
+    }
+    
     public function vacationInformation() {
     	if (count($_POST)) {
 

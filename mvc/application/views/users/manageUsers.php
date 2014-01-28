@@ -50,7 +50,7 @@
                 <td><?=$row['name']?></td>
                 <td><?=$row['email']?></td>
                 <td style="width:70px;">
-                    <form action="index.php?q=users/viewUser" method="post">
+                    <form action="index.php?q=information/getAllRequestsFromUser" method="post">
                         <input type="hidden" name="user_id" value="<?=$row['user_id']?>" />
                         <input type="submit" class="btn btn-inline btn-primary" value="View"/>
                     </form>    
