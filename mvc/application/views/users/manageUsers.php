@@ -39,7 +39,7 @@
                 <th>USERNAME</th>
                 <th>NAME</th>
                 <th>EMAIL</th>
-                <th colspan="2">OPTIONS</th>
+                <th colspan="3">OPTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -54,6 +54,12 @@
                         <input type="hidden" name="user_id" value="<?=$row['user_id']?>" />
                         <input type="submit" class="btn btn-inline btn-primary" value="View"/>
                     </form>    
+                </td>
+                <td style="width:70px;">
+                    <form action="index.php?q=days/form" method="post">
+                        <input type="hidden" name="user_id" value="<?=$row['user_id']?>" />
+                        <input type="submit" class="btn btn-inline" value="Add days" />
+                    </form>
                 </td>
                 <td style="width:70px;">
                     <form action="index.php?q=users/deleteUser" method="post" onsubmit="return confirm('Are you sure?');">
