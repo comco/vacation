@@ -15,6 +15,7 @@
 #save_button {display: block;font-size: 1.0em;padding: 3px 8px;border: 1px solid #E5E5E5;float: left; width:300px;height:50px;}
 </style>
 
+
 <div class="container">
     <section class="request-form">
         <form id="new-vacation-request-form" method= "post" action="index.php?q=request/vacationRequest">
@@ -22,7 +23,7 @@
             <div class="column">
                 <div>
                     <label for="type">Type</label>
-                    <select name="type" class="form-control" required>
+                    <select name="type" class="form-control" onclick="validate_dates()" required>
                         <option value="">Select type</option>
                         <option value="1">Vacation (Paid)</option>
                         <option value="2">Vacation (Non-Paid)</option>
@@ -45,15 +46,15 @@
                 <div>
                     <label for="comment">Comments</label>
                     <textarea name="comment" class="form-control"></textarea>
-                    <input type="submit" id="save_button" class="btn btn-block btn-primary" value="Create">
+                    <input type="submit" id="save_button" class="btn btn-block btn-primary" onclick="if(validateDates()) { return true; } else { return false; }" value="Create"  >
                 </div>
             </div>
         </form>
     </section>	
 </div>
 
-<script>
-$(document).ready(function () {
+<script type="text/javascript">
+function required() {
 
     $('#new-vacation-request-form').validate({
         rules: {
@@ -73,5 +74,24 @@ $(document).ready(function () {
         }
     });
 
-});
+}
+
+function validateDates() {
+    var start_date_str = document.getElementById("from").value;
+    var end_date_str = document.getElementById("to").value;
+
+    var star_date = new Date(start_date_str);
+    var end_date = new Date(end_date_str);
+
+   if (star_date.getDate() > end_date.getDate()) {
+        alert("Invalid time interval!");
+        document.getElementById("from").focus();
+        return false;
+    }
+    else {
+        required();
+        return true;
+    }
+}
+
 </script>
