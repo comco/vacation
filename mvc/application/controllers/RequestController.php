@@ -4,7 +4,11 @@ include 'application/models/Request.php';
 class RequestController extends BaseController {
 
 	public function form() {
-    	$this->render('request/form');
+		if($_SESSION['user_id']) {
+    		$this->render('request/form');
+    	} else {
+    		 header("Location:index.php");
+    	}
     }
     
     public function vacationRequest() {

@@ -28,7 +28,12 @@ class UsersController extends BaseController {
 
     public function manageUsers() {
         $allUsers = User::getAllUsers();
-        $this->render('users/manageUsers', $allUsers);
+        if($_SESSION['user_id']) {
+             $this->render('users/manageUsers', $allUsers);
+        } else {
+             header("Location:index.php");
+        }
+
     }
 
     public function addNewUser() {
@@ -39,8 +44,11 @@ class UsersController extends BaseController {
                 header("Location:index.php?q=users/manageUsers");
             } 
         }
-
-        $this->render('users/addNewUser');
+        if($_SESSION['user_id']) {
+            $this->render('users/addNewUser');
+        } else {
+             header("Location:index.php");
+        }
     }
 
     public function deleteUser() {
