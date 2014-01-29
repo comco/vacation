@@ -10,7 +10,7 @@ class InformationController extends BaseController {
 		}
 		else {
 			$vacations = information::getInformation($_SESSION['user_id'], null, null, 
-				 				'all', 'pending', 'user_id', 'DESC');	
+				 				'all', 'all', 'start_date', 'DESC');	
 		}
 
     	$this->render('information/table', $vacations);
